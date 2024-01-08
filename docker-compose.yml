@@ -12,6 +12,8 @@ services:
               capabilities: [ gpu ]
     volumes:
       - ./workspace:/workspace
+      - ./sd-models:/sd-models
+
     ports:
       - "6601:3001" # "3000:3001" # A1111
       - "6602:3011" # "3010:3011" # Kohya_ss

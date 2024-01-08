@@ -51,6 +51,10 @@ if [[ ! -L /workspace/stable-diffusion-webui/models/VAE/sdxl_vae.safetensors ]];
     ln -s /sd-models/sdxl_vae.safetensors /workspace/stable-diffusion-webui/models/VAE/sdxl_vae.safetensors
 fi
 
+if [[ ! -L /workspace/stable-diffusion-webui/models/Stable-diffusion/sd_xl_turbo_1.0_fp16.safetensors ]]; then
+    ln -s /sd-models/sd_xl_turbo_1.0_fp16.safetensors /workspace/stable-diffusion-webui/models/Stable-diffusion/sd_xl_turbo_1.0_fp16.safetensors
+fi
+
 # Configure accelerate
 echo "Configuring accelerate..."
 mkdir -p /root/.cache/huggingface/accelerate
