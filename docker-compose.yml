@@ -9,9 +9,9 @@ services:
           devices:
             - driver: nvidia
               count: all
-              capabilities: [gpu]
+              capabilities: [ gpu ]
     volumes:
-      - /workspace:/workspace
+      - ./workspace:/workspace
     ports:
       - "3000:3001"
       - "3010:3011"
