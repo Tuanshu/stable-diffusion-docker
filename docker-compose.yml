@@ -3,23 +3,25 @@ version: '3.8'
 services:
   stable-diffusion-webui:
     image: ashleykza/stable-diffusion-webui:latest
+    #image: custom_ashleykza/stable-diffusion-webui:latest
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
-              count: all
+              #count: all
               capabilities: [ gpu ]
+              device_ids: [ '1', '2', '3' ]
     volumes:
       - ./workspace:/workspace
       - ./sd-models:/sd-models
 
     ports:
-      - "6601:3001" # "3000:3001" # A1111
-      - "6602:3011" # "3010:3011" # Kohya_ss
-      - "6603:3021" # "3020:3021" # nginx, forward to 3021, ComfyUI
-      - "6604:6066" # "6006:6066" # tensorboard
-      - "6605:8888" # "8888:8888" # jupyter lab
+      - "6602:3001" # "3000:3001" # A1111
+      - "6603:3011" # "3010:3011" # Kohya_ss
+      - "6604:3021" # "3020:3021" # nginx, forward to 3021, ComfyUI
+      - "6605:6066" # "6006:6066" # tensorboard
+      - "6606:8888" # "8888:8888" # jupyter lab
     environment:
       JUPYTER_PASSWORD: "example" # "Jup1t3R!"
       ENABLE_TENSORBOARD: "1"
